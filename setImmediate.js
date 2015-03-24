@@ -149,11 +149,12 @@
     attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
 
     // Don't get fooled by e.g. browserify environments.
-    if ({}.toString.call(global.process) === "[object process]") {
+    /*if ({}.toString.call(global.process) === "[object process]") {
         // For Node.js before 0.9
         installNextTickImplementation();
 
-    } else if (canUsePostMessage()) {
+    } else */
+    if (canUsePostMessage()) {
         // For non-IE10 modern browsers
         installPostMessageImplementation();
 
